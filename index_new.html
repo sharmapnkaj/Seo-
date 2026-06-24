@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Agency India | Digital Marketing Services</title>
+  <meta name="description" content="Professional SEO, Content Marketing and Digital Marketing services to grow your business online.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0A0A0F; --bg2:#111118; --bg3:#1A1A24; --card:#16161F; --border:#2A2A3A; --blue:#4F6EF7; --blue2:#6B87FF; --accent:#F7C948; --text:#E8E8F0; --muted:#8888A0; --white:#FFFFFF; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;}
+    a{text-decoration:none;color:inherit;}
+
+    /* NAVBAR */
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{font-size:1.4rem;font-weight:800;color:var(--white);}
+    .nav-logo span{color:var(--blue);}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{color:var(--muted);font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{background:var(--blue);color:white;padding:10px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;}
+    .nav-cta:hover{opacity:0.85;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger span{display:block;width:24px;height:2px;background:white;border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);padding:1.5rem 5%;z-index:998;flex-direction:column;gap:1rem;border-bottom:1px solid var(--border);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{color:var(--muted);font-size:1rem;padding:0.5rem 0;border-bottom:1px solid var(--border);}
+
+    /* HERO */
+    .hero{padding:140px 5% 100px;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
+    .hero-inner{max-width:700px;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(79,110,247,0.15);border:1px solid rgba(79,110,247,0.3);color:var(--blue2);padding:8px 16px;border-radius:30px;font-size:0.82rem;font-weight:600;margin-bottom:2rem;}
+    .hero h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.05;color:var(--white);margin-bottom:1.5rem;letter-spacing:-1px;}
+    .hero h1 .grad{background:linear-gradient(135deg,var(--blue),var(--blue2),#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero p{color:var(--muted);font-size:1.1rem;line-height:1.8;max-width:520px;margin-bottom:2.5rem;}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{background:var(--blue);color:white;padding:15px 30px;border-radius:10px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;transition:transform 0.2s,opacity 0.2s;display:inline-block;}
+    .btn-primary:hover{transform:translateY(-2px);}
+    .btn-outline{background:transparent;color:var(--text);padding:15px 30px;border-radius:10px;font-weight:600;font-size:0.95rem;border:1px solid var(--border);cursor:pointer;display:inline-block;transition:all 0.2s;}
+    .btn-outline:hover{border-color:var(--blue);color:var(--blue);}
+    .hero-glow{position:absolute;top:10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(79,110,247,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+    .hero-glow2{position:absolute;bottom:-10%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(167,139,250,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+    .hero-stats{display:flex;gap:3rem;margin-top:3.5rem;flex-wrap:wrap;}
+    .hero-stat .num{font-size:2rem;font-weight:800;color:var(--white);}
+    .hero-stat .lbl{color:var(--muted);font-size:0.82rem;margin-top:2px;}
+
+    /* TRUSTED BY */
+    .trusted{padding:40px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .trusted p{color:var(--muted);font-size:0.82rem;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
+    .trusted-logos{display:flex;gap:3rem;justify-content:center;align-items:center;flex-wrap:wrap;opacity:0.4;}
+    .trusted-logos span{font-size:1rem;font-weight:700;color:var(--text);}
+
+    /* SERVICES */
+    .section{padding:80px 5%;}
+    .section-tag{display:inline-block;background:rgba(79,110,247,0.1);color:var(--blue);padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;}
+    .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:1rem;line-height:1.2;}
+    .section-title span{color:var(--blue);}
+    .section-sub{color:var(--muted);font-size:1rem;line-height:1.7;}
+    .section-header{text-align:center;margin-bottom:3.5rem;}
+    .section-header .section-sub{max-width:560px;margin:0 auto;}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.2s,transform 0.2s;}
+    .card:hover{border-color:var(--blue);transform:translateY(-4px);}
+    .card-icon{width:50px;height:50px;background:rgba(79,110,247,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem;}
+    .card h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;}
+    .card p{color:var(--muted);font-size:0.88rem;line-height:1.7;}
+    .card-link{display:inline-flex;align-items:center;gap:4px;color:var(--blue);font-size:0.85rem;font-weight:600;margin-top:1rem;}
+
+    /* WHY US */
+    .dark-section{background:var(--bg2);}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+    .why-left h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:1.5rem;line-height:1.2;}
+    .why-items{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+    .why-item{display:flex;gap:1rem;align-items:flex-start;}
+    .why-check{width:24px;height:24px;background:rgba(79,110,247,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:0.8rem;flex-shrink:0;margin-top:2px;}
+    .why-item h4{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;}
+    .why-item p{font-size:0.85rem;color:var(--muted);}
+    .stats-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .stat-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;}
+    .stat-num{font-size:2.5rem;font-weight:900;color:var(--blue);display:block;}
+    .stat-label{color:var(--muted);font-size:0.82rem;margin-top:0.3rem;}
+
+    /* PROCESS */
+    .process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;}
+    .process-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;}
+    .process-num{font-size:3rem;font-weight:900;color:rgba(79,110,247,0.15);position:absolute;top:1rem;right:1.5rem;}
+    .process-card h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+    .process-card p{color:var(--muted);font-size:0.85rem;line-height:1.6;}
+
+    /* TESTIMONIALS */
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+    .testi-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+    .testi-stars{color:var(--accent);font-size:1rem;margin-bottom:1rem;}
+    .testi-card p{color:var(--text);font-size:0.9rem;line-height:1.7;margin-bottom:1.5rem;}
+    .testi-author{display:flex;align-items:center;gap:0.8rem;}
+    .testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;}
+    .testi-name{font-size:0.9rem;font-weight:700;color:var(--white);}
+    .testi-role{font-size:0.78rem;color:var(--muted);}
+
+    /* BLOG */
+    .blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.2s,border-color 0.2s;}
+    .blog-card:hover{transform:translateY(-4px);border-color:var(--blue);}
+    .blog-img{height:200px;object-fit:cover;width:100%;}
+    .blog-body{padding:1.5rem;}
+    .blog-tag{display:inline-block;background:rgba(79,110,247,0.1);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;margin-bottom:0.8rem;}
+    .blog-card h3{font-size:1rem;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:0.5rem;}
+    .blog-card p{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;}
+    .blog-meta{display:flex;gap:1rem;font-size:0.78rem;color:var(--muted);}
+
+    /* CTA */
+    .cta-section{background:linear-gradient(135deg,rgba(15,26,79,0.8),rgba(26,26,79,0.8));border:1px solid rgba(79,110,247,0.2);border-radius:24px;padding:70px 5%;text-align:center;margin:0 5% 80px;position:relative;overflow:hidden;}
+    .cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(79,110,247,0.1) 0%,transparent 70%);border-radius:50%;}
+    .cta-section h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:1rem;position:relative;}
+    .cta-section p{color:var(--muted);margin-bottom:2rem;position:relative;}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 5% 30px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+    .footer-brand p{color:var(--muted);font-size:0.85rem;line-height:1.7;margin-top:1rem;max-width:260px;}
+    .footer-col h4{color:var(--white);font-size:0.9rem;font-weight:700;margin-bottom:1.2rem;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem;}
+    .footer-col ul li a{color:var(--muted);font-size:0.85rem;transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .footer-bottom p{color:var(--muted);font-size:0.82rem;}
+    .footer-social{display:flex;gap:0.8rem;}
+    .social-btn{width:36px;height:36px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:border-color 0.2s;}
+    .social-btn:hover{border-color:var(--blue);}
+
+    @media(max-width:768px){
+      .nav-links,.nav-cta{display:none;}
+      .hamburger{display:flex;}
+      .why-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .hero-stats{gap:2rem;}
+    }
+    @media(max-width:480px){
+      .footer-grid{grid-template-columns:1fr;}
+      .stats-right{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index_new.html" class="nav-logo">SEO<span>Agency</span></a>
+  <ul class="nav-links">
+    <li><a href="index_new.html" class="active">Home</a></li>
+    <li><a href="about_new.html">About</a></li>
+    <li><a href="services_new.html">Services</a></li>
+    <li><a href="blog_new.html">Blog</a></li>
+    <li><a href="contact_new.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Free Quote</a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="index_new.html">Home</a>
+  <a href="about_new.html">About</a>
+  <a href="services_new.html">Services</a>
+  <a href="blog_new.html">Blog</a>
+  <a href="contact_new.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🚀 India's #1 SEO Agency</div>
+    <h1>Rank Higher.<br><span class="grad">Grow Faster.</span><br>Win Online.</h1>
+    <p>We help businesses dominate search results, generate quality leads and scale revenue through data-driven SEO and digital marketing strategies.</p>
+    <div class="hero-btns">
+      <a href="contact_new.html" class="btn-primary">Get Free Consultation →</a>
+      <a href="services_new.html" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">500+</div><div class="lbl">Projects Done</div></div>
+      <div class="hero-stat"><div class="num">98%</div><div class="lbl">Client Retention</div></div>
+      <div class="hero-stat"><div class="num">5x</div><div class="lbl">Avg. Traffic Growth</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<div class="trusted">
+  <p>Trusted by 200+ businesses across India</p>
+  <div class="trusted-logos">
+    <span>TechCorp</span><span>StartupHub</span><span>GrowthCo</span><span>BrandMax</span><span>DigitalX</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Our Services</div>
+    <h2 class="section-title">Everything You Need to <span>Dominate Google</span></h2>
+    <p class="section-sub">Complete digital marketing solutions designed to boost your online presence and drive real business results.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>SEO Optimization</h3>
+      <p>Improve rankings and drive organic traffic with on-page, off-page and technical SEO strategies.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">✍️</div>
+      <h3>Content Marketing</h3>
+      <p>High-quality content that attracts, engages and converts your target audience into customers.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Social Media Marketing</h3>
+      <p>Build brand awareness and engage customers across Instagram, Facebook, LinkedIn and more.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">📧</div>
+      <h3>Email Marketing</h3>
+      <p>Personalized email campaigns that nurture leads and drive repeat business effectively.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Link Building</h3>
+      <p>High-quality backlinks from authoritative websites to boost your domain authority and rankings.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <h3>Local SEO</h3>
+      <p>Dominate local search results and Google Business Profile to attract nearby customers.</p>
+      <a href="services_new.html" class="card-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section dark-section">
+  <div class="why-grid">
+    <div class="why-left">
+      <div class="section-tag">Why Choose Us</div>
+      <h2>We Don't Just Promise — <span style="color:var(--blue)">We Deliver Results</span></h2>
+      <p style="color:var(--muted);margin-bottom:1rem">Our data-driven approach and transparent reporting means you always know exactly what you're getting.</p>
+      <div class="why-items">
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div><h4>Proven Track Record</h4><p>500+ successful projects with measurable results for clients across India.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div><h4>Transparent Reporting</h4><p>Detailed monthly reports with clear metrics — no fluff, just real data.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div><h4>Dedicated Account Manager</h4><p>Your own SEO expert who knows your business inside and out.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div><h4>No Long-term Contracts</h4><p>Month-to-month plans because we're confident in our results.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-right">
+      <div class="stat-box"><span class="stat-num">500+</span><div class="stat-label">Projects Completed</div></div>
+      <div class="stat-box"><span class="stat-num">5+</span><div class="stat-label">Years Experience</div></div>
+      <div class="stat-box"><span class="stat-num">98%</span><div class="stat-label">Client Retention</div></div>
+      <div class="stat-box"><span class="stat-num">5x</span><div class="stat-label">Traffic Growth</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Our Process</div>
+    <h2 class="section-title">How We <span>Get You Results</span></h2>
+    <p class="section-sub">A proven 4-step framework that consistently delivers measurable growth for our clients.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-card"><div class="process-num">01</div><div class="card-icon">🔎</div><h3>Audit & Research</h3><p>Deep analysis of your website, competitors and target keywords.</p></div>
+    <div class="process-card"><div class="process-num">02</div><div class="card-icon">📋</div><h3>Strategy</h3><p>Custom SEO roadmap aligned with your business goals and budget.</p></div>
+    <div class="process-card"><div class="process-num">03</div><div class="card-icon">⚙️</div><h3>Execute</h3><p>Implementation of on-page, off-page and technical optimizations.</p></div>
+    <div class="process-card"><div class="process-num">04</div><div class="card-icon">📈</div><h3>Track & Scale</h3><p>Monitor results, optimize campaigns and scale what works.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section dark-section">
+  <div class="section-header">
+    <div class="section-tag">Testimonials</div>
+    <h2 class="section-title">What Our <span>Clients Say</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Our organic traffic increased by 340% in just 6 months. The SEO Agency team is absolutely amazing at what they do!"</p>
+      <div class="testi-author">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="testi-avatar">
+        <div><div class="testi-name">Rajesh Kumar</div><div class="testi-role">CEO, TechStartup India</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"Best SEO investment we've ever made. Transparent reporting, dedicated team and real results. Highly recommended!"</p>
+      <div class="testi-author">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" class="testi-avatar">
+        <div><div class="testi-name">Priya Sharma</div><div class="testi-role">Founder, Fashion Brand</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>"We went from page 5 to page 1 for our main keywords in 4 months. Incredible results and great communication!"</p>
+      <div class="testi-author">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="" class="testi-avatar">
+        <div><div class="testi-name">Amit Verma</div><div class="testi-role">MD, E-commerce Store</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Latest Insights</div>
+    <h2 class="section-title">SEO Tips & <span>Marketing Guides</span></h2>
+  </div>
+  <div class="grid-3">
+    <a href="blog.html" class="blog-card">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="SEO Guide" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-tag">SEO</div>
+        <h3>What Is SEO? Complete Beginner Guide 2026</h3>
+        <p>Learn how search engine optimization works and why every business needs it.</p>
+        <div class="blog-meta"><span>📅 June 2026</span><span>⏱ 5 min read</span></div>
+      </div>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800" alt="Content Marketing" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-tag">Content</div>
+        <h3>Content Marketing Strategy That Actually Works</h3>
+        <p>Create engaging content that attracts and converts visitors into customers.</p>
+        <div class="blog-meta"><span>📅 June 2026</span><span>⏱ 7 min read</span></div>
+      </div>
+    </a>
+    <a href="blog.html" class="blog-card">
+      <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800" alt="Social Media" class="blog-img">
+      <div class="blog-body">
+        <div class="blog-tag">Social Media</div>
+        <h3>Social Media Marketing Tips for Indian Businesses</h3>
+        <p>Build your audience and grow your brand across social platforms.</p>
+        <div class="blog-meta"><span>📅 May 2026</span><span>⏱ 4 min read</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to Dominate Google? 🚀</h2>
+  <p>Get a free SEO audit worth ₹15,000 — no strings attached.</p>
+  <a href="contact_new.html" class="btn-primary">Get Free SEO Audit →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index_new.html" style="font-size:1.3rem;font-weight:800;color:white;">SEO<span style="color:#4F6EF7">Agency</span></a>
+      <p>India's leading SEO and digital marketing agency helping businesses grow online since 2019.</p>
+      <div style="display:flex;gap:0.8rem;margin-top:1.2rem">
+        <a href="#" style="width:36px;height:36px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">📘</a>
+        <a href="#" style="width:36px;height:36px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">📸</a>
+        <a href="#" style="width:36px;height:36px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">💼</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services_new.html">SEO Optimization</a></li><li><a href="services_new.html">Content Marketing</a></li><li><a href="services_new.html">Social Media</a></li><li><a href="services_new.html">Email Marketing</a></li><li><a href="services_new.html">Link Building</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about_new.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact_new.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="#">📍 New Delhi, India</a></li><li><a href="#">📞 +91 8816907399</a></li><li><a href="#">✉ info@seoagency.com</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 SEO Agency. All Rights Reserved.</p>
+    <p>Made with ❤️ in India</p>
+  </div>
+</footer>
+
+</body>
+</html>
